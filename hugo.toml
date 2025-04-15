@@ -2,13 +2,6 @@ baseURL = 'https://ka-iden.github.io/'
 languageCode = 'en-us'
 title = 'ka-iden'
 
-# Disable Hugo's default date handling
-# This ensures future dated posts always appear
-ignoreFutureDate = false
-
-[params]
-  description = "Personal portfolio and blog of Kaiden"
-
 [menu]
   [[menu.main]]
     identifier = "home"
@@ -26,22 +19,19 @@ ignoreFutureDate = false
     url = "/blog/"
     weight = 3
 
-# Content building options
 buildFuture = true  # Required for future-dated content to appear
 buildExpired = true  # Include expired content
 buildDrafts = true   # Include content marked as drafts
+ignoreFutureDate = false
 
-# URL management
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
 [permalinks]
   blog = "/blog/:filename/"
   projects = "/projects/:filename/"
 
-# Section configuration
-[outputs]
-  home = ["HTML", "RSS"]
-  section = ["HTML", "RSS"]
-
-# Ensure section pages are properly created
 [taxonomies]
   category = "categories"
   tag = "tags"
