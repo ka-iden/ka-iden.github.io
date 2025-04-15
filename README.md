@@ -23,4 +23,3 @@ hugo-theme-nostyleplease is licensed under the [MIT License][hugomit].
 
 [MIT License]: LICENSE
 [Apache 2.0 license]: https://github.com/gohugoio/hugo/blob/master/LICENSE
-[hugomit]: https://github.com/hanwenguo/hugo-theme-nostyleplease/blob/main/LICENSE
