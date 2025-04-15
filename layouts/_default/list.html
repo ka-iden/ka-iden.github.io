@@ -1,0 +1,30 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  
+  <div class="section-description">
+    {{ .Content }}
+  </div>
+  
+  {{ $pages := .RegularPagesRecursive }}
+  {{ if $pages }}
+    <ul class="content-list">
+      {{ range $pages.ByDate.Reverse }}
+        <li>
+          <a href="{{ .Permalink }}">
+            <h2>{{ .Title }}</h2>
+            {{ if .Date }}
+              <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 02, 2006" }}</time>
+            {{ end }}
+            {{ if .Params.description }}
+              <p>{{ .Params.description }}</p>
+            {{ else if .Summary }}
+              <p>{{ .Summary | truncate 150 }}</p>
+            {{ end }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ else }}
+    <p>No content found in this section.</p>
+  {{ end }}
+{{ end }}
