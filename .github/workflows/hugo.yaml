@@ -66,6 +66,9 @@ jobs:
           hugo \
             --gc \
             --minify \
+            --buildDrafts \
+            --buildFuture \
+            --buildExpired \
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
             --cacheDir "${{ runner.temp }}/hugo_cache"
       - name: Cache Save
