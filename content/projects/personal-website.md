@@ -36,7 +36,7 @@ This site will continue to evolve as I learn more about web development and Hugo
 - Become more mobile-friendly
 
 [websiterepo]: https://github.com/ka-iden/ka-iden.github.io "Github Repository"
-[websitelive]: https://ka-iden.github.io "This website"
+[websitelive]: / "This website"
 
 [no-style-please]: https://themes.gohugo.io/themes/hugo-theme-nostyleplease/ "no-style-please theme"
 [book]: https://themes.gohugo.io/themes/hugo-book/ "Book theme"

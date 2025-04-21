@@ -8,7 +8,7 @@ date: 2025-04-16T00:00:00Z
 Heyo, I'm Kaiden! (you might see my username as ka-iden, ka_iden, \_kden, or fl2mexd)  
 My pronouns are He/Him, and I'm currently studying IT at RMIT.  
 I enjoy coding primarily in C++ & C, and I've recently picked up ASM and am learning Vulkan.  
-I have a website that lives at: [ka-iden.github.io](https://ka-iden.github.io/) (that's here!)
+I have a website that lives at: [ka-iden.github.io](/) (that's here!)
 
 Fun fact: I'm from Australia so i'm uʍop ǝpᴉsdn ʎlʇuǝɹɹnɔ
 
@@ -34,5 +34,5 @@ Visit my [blog page] where I share tutorials, insights, and experiences.
 
 [hyper]: https://github.com/ka-iden/hyper "My vulkan renderer called hyper"
 
-[projects page]: https://ka-iden.github.io/projects/ "Projects Page"
-[blog page]: https://ka-iden.github.io/blog/ "Blog Page"
+[projects page]: /projects "Projects Page"
+[blog page]: /blog "Blog Page"

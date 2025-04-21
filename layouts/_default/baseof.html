@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 	<title>{{ .Title }} | {{ .Site.Title }}</title>
+	<script src="/js/detecttheme.js"></script>
 	<link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
@@ -13,6 +14,8 @@
 			<div class="site-title">
 				<a href="/"><img src="/images/compressedimg.jpg"></a>
 				<a href="/">{{ .Site.Title }}</a>
+				<button id="darkModeToggle" aria-label="Toggle dark mode"></button>
+				<script src="/js/darklighticon.js"></script>
 			</div>
 			<ul class="menu">
 				<li><a href="/">Home</a></li>

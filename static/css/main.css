@@ -5,13 +5,31 @@
 }
 
 :root {
-	--text-color: #222;
-	--date-color: #555;
-	--tag-color: #888;;
+	--text-color: #1a1a1a;
+	--date-color: #666;
+	--tag-color: #999;
 	--background-color: #fff;
-	--link-color: #222;
-	--link-hover: #555;
-	--border-color: #ddd;
+	--link-color: #383838;
+	--link-hover: #000;
+	--border-color: #ccc;
+	--code-bg: #f1f1f1;
+	--font-weight: 400;
+}
+
+:root.dark-mode {
+	--text-color: #fff;
+	--date-color: #bbb;
+	--tag-color: #777;
+	--background-color: #121212;
+	--link-color: #ccc;
+	--link-hover: #fff;
+	--border-color: #333;
+	--code-bg: #1e1e1e;
+	--font-weight: 450; /* Slightly thicker font in dark mode */
+}
+
+:root.dark-mode code, :root.dark-mode pre {
+	background-color: var(--code-bg);
 }
 
 body {
@@ -20,9 +38,11 @@ body {
 	line-height: 1.5;
 	color: var(--text-color);
 	background-color: var(--background-color);
+	font-weight: var(--font-weight); /* Apply the font weight */
 	max-width: 1250px;
 	margin: 0 auto;
 	padding: 2.5rem 1.25rem;
+	transition: background-color 0.2s, color 0.2s, font-weight 0.2s;
 }
 
 .page-container {
@@ -32,7 +52,7 @@ body {
 }
 
 .sidebar {
-	flex: 0 0 16rem;
+	flex: 0 0 18rem;
 	margin-bottom: 1rem;
 }
 
@@ -94,6 +114,19 @@ a:hover {
 	display: flex;
 	align-items: center;
 	gap: 0.75rem;
+	width: 100%; /* Ensure the container takes full width */
+}
+
+/* Dark mode toggle button */
+#darkModeToggle {
+	background: none;
+	border: none;
+	font-size: 1.5rem;
+	cursor: pointer;
+	padding: 0.25rem 0.5rem;
+	margin-left: auto; /* This pushes the button to the right */
+	transition: background-color 0.3s;
+	color: var(--text-color);
 }
 
 .site-title img {
@@ -245,7 +278,7 @@ footer {
 code, pre {
 	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 	font-size: 0.9em;
-	background-color: #f6f8fa;
+	background-color: var(--code-bg);
 	padding: 0.2em 0.4em;
 	border-radius: 0.2em;
 }
