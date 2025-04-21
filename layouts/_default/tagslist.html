@@ -1,0 +1,37 @@
+{{ define "main" }}
+  <h1>All Tags</h1>
+  
+  <div class="section-description">
+    {{ .Content }}
+  </div>
+
+  {{ if eq .Title "Blog" }}
+  <h2>Blog Tags</h2>
+  <ul class="taxonomy-list">
+    {{ range $name, $taxonomy := (index .Site.Taxonomies "blog_tags") }}
+      <li>
+        <a href="{{ $taxonomy.Page.RelPermalink }}">
+          #{{ $name }} <span class="taxonomy-count">({{ $taxonomy.Count }})</span>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+  {{ else if eq .Title "Projects" }}
+  <h2>Project Tags</h2>
+  <ul class="taxonomy-list">
+    {{ range $name, $taxonomy := (index .Site.Taxonomies "project_tags") }}
+      <li>
+        <a href="{{ $taxonomy.Page.RelPermalink }}">
+          #{{ $name }} <span class="taxonomy-count">({{ $taxonomy.Count }})</span>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+
+  {{ if eq .Title "Blog" }}
+    <p><a href="/blog/">&larr; Back to Blog</a></p>
+  {{ else if eq .Title "Projects" }}
+    <p><a href="/projects/">&larr; Back to Projects</a></p>
+  {{ end }}
+{{ end }}

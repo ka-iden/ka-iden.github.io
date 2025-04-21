@@ -3,8 +3,7 @@ title: "My First Post"
 date: 2025-04-16T00:00:00Z
 draft: false
 description: "Welcome to My Blog!"
-tags: ["introduction", "personal"]
-categories: ["general"]
+blog_tags: ["introduction", "personal"]
 ---
 
 This is my first blog post on my new Hugo site. I'm excited to start sharing my thoughts and projects here!

@@ -6,6 +6,8 @@
 
 :root {
   --text-color: #222;
+  --date-color: #555;
+  --tag-color: #888;;
   --background-color: #fff;
   --link-color: #222;
   --link-hover: #555;
@@ -26,17 +28,40 @@ body {
 .page-container {
   display: flex;
   flex-direction: row;
-  gap: 2.5rem;
+  gap: 0.5rem;
 }
 
 .sidebar {
-  flex: 0 0 15rem;
-  margin-right: 1.5rem;
+  flex: 0 0 16rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar ul, .sidebar ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .content {
   flex: 1;
   max-width: 100%;
+}
+
+.content ul, .content ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.content ul {
+  list-style-type: disc;
+}
+
+.content ol {
+  list-style-type: decimal;
+}
+
+.content li {
+  margin-bottom: 0.5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -65,7 +90,7 @@ a:hover {
 
 .site-title {
   font-size: 2.8125rem;
-  margin-bottom: 1.875rem;
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -73,6 +98,7 @@ a:hover {
 
 .site-title img {
   max-height: 4rem;
+  display: flex;
   width: auto;
 }
 
@@ -87,7 +113,6 @@ a:hover {
 
 .menu {
   list-style: none;
-  margin-bottom: 2rem;
 }
 
 .site-title a, .menu a {
@@ -118,7 +143,23 @@ footer {
   margin-top: 0;
 }
 
-@media (max-width: 768px) {
+.taxonomy-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.taxonomy-list li {
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+}
+
+.taxonomy-count {
+  color: var(--tag-color);
+  font-size: 0.9em;
+}
+
+@media (max-width: 48rem) {
   .page-container {
     flex-direction: column;
   }

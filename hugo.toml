@@ -31,7 +31,9 @@ ignoreFutureDate = false
 [permalinks]
   blog = "/blog/:filename/"
   projects = "/projects/:filename/"
+  blog_tags = "/blog/tags/:slug/"
+  project_tags = "/projects/tags/:slug/"
 
 [taxonomies]
-  category = "categories"
-  tag = "tags"
+  blog_tag = "blog_tags"
+  project_tag = "project_tags"

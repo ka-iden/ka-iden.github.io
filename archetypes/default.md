@@ -4,7 +4,6 @@ date: {{ .Date }}
 draft: true
 description: ""
 tags: []
-categories: []
 ---
 
 WIP

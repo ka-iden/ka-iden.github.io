@@ -3,8 +3,7 @@ title: "Personal Website"
 date: 2025-04-16T00:00:00Z
 draft: false
 description: "My personal portfolio website built with Hugo"
-tags: ["hugo", "portfolio"]
-categories: ["general"]
+project_tags: ["hugo", "portfolio"]
 ---
 
 ## Overview

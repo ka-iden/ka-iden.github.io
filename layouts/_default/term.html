@@ -5,13 +5,6 @@
     {{ .Content }}
   </div>
   
-  {{ if eq .Section "blog" }}
-      <a href="/blog/tags/">Browse by Tags</a>
-  {{ else if eq .Section "projects" }}
-      <a href="/projects/tags/">Browse by Tags</a>
-  {{ end }}
-  <br><br>
-  
   {{ $pages := .RegularPagesRecursive }}
   {{ if $pages }}
     <ul class="content-list">
@@ -48,5 +41,12 @@
     </ul>
   {{ else }}
     <p>No content found in this section.</p>
+  {{ end }}
+  
+  <!-- Add back button based on the taxonomy type -->
+  {{ if in .RelPermalink "/projects/tags/" }}
+    <p><a href="/projects/tags/">&larr; Back to Project Tags</a></p>
+  {{ else if in .RelPermalink "/blog/tags/" }}
+    <p><a href="/blog/tags/">&larr; Back to Blog Tags</a></p>
   {{ end }}
 {{ end }}
