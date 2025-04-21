@@ -1,52 +1,52 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  
-  <div class="section-description">
-    {{ .Content }}
-  </div>
-  
-  {{ $pages := .RegularPagesRecursive }}
-  {{ if $pages }}
-    <ul class="content-list">
-      {{ range $pages.ByDate.Reverse }}
-        <li>
-          <a href="{{ .Permalink }}">
-            {{ if .Date }}
-            <time style="color: var(--date-color)" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 02, 2006" }}</time>
-            {{ end }}
-            {{ .Title }}
-            <br>
-          </a>
-          {{ if eq .Section "blog" }}
-            {{ if .Params.blog_tags }}
-              <span class="tags">
-                {{ $tagCount := len .Params.blog_tags }}
-                {{ range $index, $tag := .Params.blog_tags }}
-                  <a href="/blog/tags/{{ $tag | urlize }}/" style="color: var(--tag-color)" class="tag">#{{ $tag }}{{ if ne (add $index 1) $tagCount }},{{ end }}</a>
-                {{ end }}
-              </span>
-            {{ end }}
-          {{ else if eq .Section "projects" }}
-            {{ if .Params.project_tags }}
-              <span class="tags">
-                {{ $tagCount := len .Params.project_tags }}
-                {{ range $index, $tag := .Params.project_tags }}
-                  <a href="/projects/tags/{{ $tag | urlize }}/" style="color: var(--tag-color)" class="tag">#{{ $tag }}{{ if ne (add $index 1) $tagCount }},{{ end }}</a>
-                {{ end }}
-              </span>
-            {{ end }}
-          {{ end }}
-        </li>
-      {{ end }}
-    </ul>
-  {{ else }}
-    <p>No content found in this section.</p>
-  {{ end }}
-  
-  <!-- Add back button based on the taxonomy type -->
-  {{ if in .RelPermalink "/projects/tags/" }}
-    <p><a href="/projects/tags/">&larr; Back to Project Tags</a></p>
-  {{ else if in .RelPermalink "/blog/tags/" }}
-    <p><a href="/blog/tags/">&larr; Back to Blog Tags</a></p>
-  {{ end }}
+	<h1>{{ .Title }}</h1>
+	
+	<div class="section-description">
+		{{ .Content }}
+	</div>
+	
+	{{ $pages := .RegularPagesRecursive }}
+	{{ if $pages }}
+		<ul class="content-list">
+			{{ range $pages.ByDate.Reverse }}
+				<li>
+					<a href="{{ .Permalink }}">
+						{{ if .Date }}
+						<time style="color: var(--date-color)" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 02, 2006" }}</time>
+						{{ end }}
+						{{ .Title }}
+						<br>
+					</a>
+					{{ if eq .Section "blog" }}
+						{{ if .Params.blog_tags }}
+							<span class="tags">
+								{{ $tagCount := len .Params.blog_tags }}
+								{{ range $index, $tag := .Params.blog_tags }}
+									<a href="/blog/tags/{{ $tag | urlize }}/" style="color: var(--tag-color)" class="tag">#{{ $tag }}{{ if ne (add $index 1) $tagCount }},{{ end }}</a>
+								{{ end }}
+							</span>
+						{{ end }}
+					{{ else if eq .Section "projects" }}
+						{{ if .Params.project_tags }}
+							<span class="tags">
+								{{ $tagCount := len .Params.project_tags }}
+								{{ range $index, $tag := .Params.project_tags }}
+									<a href="/projects/tags/{{ $tag | urlize }}/" style="color: var(--tag-color)" class="tag">#{{ $tag }}{{ if ne (add $index 1) $tagCount }},{{ end }}</a>
+								{{ end }}
+							</span>
+						{{ end }}
+					{{ end }}
+				</li>
+			{{ end }}
+		</ul>
+	{{ else }}
+		<p>No content found in this section.</p>
+	{{ end }}
+	
+	<!-- Add back button based on the taxonomy type -->
+	{{ if in .RelPermalink "/projects/tags/" }}
+		<p><a href="/projects/tags/">&larr; Back to Project Tags</a></p>
+	{{ else if in .RelPermalink "/blog/tags/" }}
+		<p><a href="/blog/tags/">&larr; Back to Blog Tags</a></p>
+	{{ end }}
 {{ end }}

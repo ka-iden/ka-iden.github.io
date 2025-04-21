@@ -3,21 +3,21 @@ languageCode = 'en-us'
 title = 'ka-iden'
 
 [menu]
-  [[menu.main]]
-    identifier = "home"
-    name = "Home"
-    url = "/"
-    weight = 1
-  [[menu.main]]
-    identifier = "projects"
-    name = "Projects"
-    url = "/projects/"
-    weight = 2
-  [[menu.main]]
-    identifier = "blog"
-    name = "Blog"
-    url = "/blog/"
-    weight = 3
+	[[menu.main]]
+		identifier = "home"
+		name = "Home"
+		url = "/"
+		weight = 1
+	[[menu.main]]
+		identifier = "projects"
+		name = "Projects"
+		url = "/projects/"
+		weight = 2
+	[[menu.main]]
+		identifier = "blog"
+		name = "Blog"
+		url = "/blog/"
+		weight = 3
 
 buildFuture = true  # Required for future-dated content to appear
 buildExpired = true  # Include expired content
@@ -25,15 +25,15 @@ buildDrafts = true   # Include content marked as drafts
 ignoreFutureDate = false
 
 [caches]
-  [caches.images]
-    dir = ':cacheDir/images'
+	[caches.images]
+		dir = ':cacheDir/images'
 
 [permalinks]
-  blog = "/blog/:filename/"
-  projects = "/projects/:filename/"
-  blog_tags = "/blog/tags/:slug/"
-  project_tags = "/projects/tags/:slug/"
+	blog = "/blog/:filename/"
+	projects = "/projects/:filename/"
+	blog_tags = "/blog/tags/:slug/"
+	project_tags = "/projects/tags/:slug/"
 
 [taxonomies]
-  blog_tag = "blog_tags"
-  project_tag = "project_tags"
+	blog_tag = "blog_tags"
+	project_tag = "project_tags"
