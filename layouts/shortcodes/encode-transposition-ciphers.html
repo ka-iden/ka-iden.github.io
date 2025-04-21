@@ -1,0 +1,58 @@
+<label for="plaintext">Plaintext:</label> <input type="text" id="plaintext" placeholder="Enter plaintext"/><br>
+<label for="encodeKey">Key:</label> <input type="text" id="encodeKey" placeholder="Enter key"/><br>
+<button onclick="encodeMessage()">Encode</button> <label id="encoded">Encoded Text Here</label>
+
+<script>
+	function encodeMessage() {
+		// Get the text and key from the inputs
+		var plaintext = document.getElementById("plaintext").value;
+		var encodeKey = document.getElementById("encodeKey").value;
+
+		if (!plaintext || !encodeKey) {
+			alert("Please enter both the plaintext and key.");
+			return;
+		}
+
+		// Call the transposition cipher function to get the encoded result
+		var encodedText = transpositionCipherEncode(plaintext, encodeKey);
+		
+		document.getElementById("encoded").innerText = "\""+encodedText+"\"";
+	}
+
+	function transpositionCipherEncode(text, key) {
+
+		var width = key.length;
+		var height = Math.ceil(text.length / width);
+		var grid = [];
+
+		// fill grid
+		for (var i = 0; i < height; i++) {
+			grid[i] = text.slice(i * width, (i + 1) * width).split('');
+		}
+
+		// fill empty spaces with spaces
+		for (var i = 0; i < height; i++) {
+			for (var j = grid[i].length; j < width; j++) {
+				grid[i][j] = ' ';
+			}
+		}
+
+		// create a map of the key to its index
+		var keyMap = key.split('').map((char, index) => ({ char, index })).sort((a, b) => a.char.localeCompare(b.char));
+
+		var sortedKey = keyMap.map(item => item.index);
+
+		var encodedText = '';
+
+		// read the grid in the order of the sorted key
+
+		for (var i = 0; i < width; i++) {
+			for (var j = 0; j < height; j++) {
+				encodedText += grid[j][sortedKey[i]];
+			}
+		}
+
+		return encodedText;
+}
+
+</script>

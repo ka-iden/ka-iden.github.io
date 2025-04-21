@@ -12,6 +12,7 @@
 	--link-color: #383838;
 	--link-hover: #000;
 	--border-color: #ccc;
+	--table-color: #000;
 	--code-bg: #f1f1f1;
 	--font-weight: 400;
 }
@@ -24,8 +25,9 @@
 	--link-color: #ccc;
 	--link-hover: #fff;
 	--border-color: #333;
+	--table-color: #fff;
 	--code-bg: #1e1e1e;
-	--font-weight: 450; /* Slightly thicker font in dark mode */
+	--font-weight: 450;
 }
 
 :root.dark-mode code, :root.dark-mode pre {
@@ -38,7 +40,7 @@ body {
 	line-height: 1.5;
 	color: var(--text-color);
 	background-color: var(--background-color);
-	font-weight: var(--font-weight); /* Apply the font weight */
+	font-weight: var(--font-weight);
 	max-width: 1250px;
 	margin: 0 auto;
 	padding: 2.5rem 1.25rem;
@@ -114,17 +116,16 @@ a:hover {
 	display: flex;
 	align-items: center;
 	gap: 0.75rem;
-	width: 100%; /* Ensure the container takes full width */
+	width: 100%;
 }
 
-/* Dark mode toggle button */
 #darkModeToggle {
 	background: none;
 	border: none;
 	font-size: 1.5rem;
 	cursor: pointer;
 	padding: 0.25rem 0.5rem;
-	margin-left: auto; /* This pushes the button to the right */
+	margin-left: auto;
 	transition: background-color 0.3s;
 	color: var(--text-color);
 }
@@ -288,3 +289,17 @@ pre {
 	overflow-x: auto;
 	margin-bottom: 1rem;
 }
+
+table {
+	border-collapse: collapse;
+	margin-bottom: 1rem;
+  }
+  table, th, td {
+	border: 0.0625rem solid var(--table-color);
+  }
+  th, td {
+	padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  }
+  th {
+	text-align: left;
+  }

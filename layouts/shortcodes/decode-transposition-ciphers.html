@@ -1,0 +1,67 @@
+<label for="encodedText">Encoded Text:</label> <input type="text" id="encodedText" placeholder="Enter encoded text"/><br>
+<label for="decodeKey">Key:</label> <input type="text" id="decodeKey" placeholder="Enter key"/><br>
+<button onclick="decodeMessage()">Decode</button> <label id="decoded">Decoded Text Here</label>
+
+<script>
+	function decodeMessage() {
+		// Get the encoded text and key from the inputs
+		var encodedText = document.getElementById("encodedText").value;
+		var decodeKey = document.getElementById("decodeKey").value;
+		
+		if (!encodedText || !decodeKey) {
+			alert("Please enter both the encoded text and key.");
+			return;
+		}
+
+		// Call the transposition cipher function to get the decoded result
+		var decodedText = transpositionCipherDecode(encodedText, decodeKey);
+		
+		document.getElementById("decoded").innerText = "\""+decodedText+"\"";
+	}
+
+	function transpositionCipherDecode(encodedText, key) {
+		var width = key.length;
+		var height = Math.ceil(encodedText.length / width);
+		
+		// Create empty grid
+		var grid = [];
+		for (var i = 0; i < height; i++) {
+			grid[i] = Array(width).fill('');
+		}
+		
+		// Create key map for column ordering
+		var keyMap = key.split('').map((char, index) => ({ char, index })).sort((a, b) => a.char.localeCompare(b.char));
+		var sortedKeyIndices = keyMap.map(item => item.index);
+		
+		// Calculate lengths of columns (to handle partial columns at the end)
+		var colLength = Math.floor(encodedText.length / width);
+		var remainder = encodedText.length % width;
+		var colLengths = Array(width).fill(colLength);
+		
+		// Some columns might be longer if text length isn't perfectly divisible by key length
+		for (var i = 0; i < remainder; i++) {
+			colLengths[sortedKeyIndices[i]]++;
+		}
+		
+		// Fill grid column by column according to the key order
+		var charIndex = 0;
+		for (var i = 0; i < width; i++) {
+			var col = sortedKeyIndices[i];
+			for (var j = 0; j < colLengths[col]; j++) {
+				grid[j][col] = encodedText.charAt(charIndex++);
+			}
+		}
+		
+		// Read grid row by row to get the original message
+		var decodedText = '';
+		for (var i = 0; i < height; i++) {
+			for (var j = 0; j < width; j++) {
+				if (grid[i][j]) {
+					decodedText += grid[i][j];
+				}
+			}
+		}
+		
+		return decodedText;
+	}
+</script>
