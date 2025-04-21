@@ -165,8 +165,80 @@ footer {
   }
   
   .sidebar {
-    margin-right: 0;
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 0 0 auto;
+  }
+  
+  .site-title {
+    justify-content: flex-start;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu li {
+    margin: 0;
+  }
+
+  .corner-gif {
+    bottom: 0.5rem;
+    right: 0.5rem;
+    width: 60px;
+  }
+}
+
+@media (max-width: 32rem) {
+  .page-container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 0 0 auto;
+  }
+  
+  .site-title {
+    font-size: 2rem;
+    justify-content: flex-start;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu li {
+    margin: 0;
+  }
+
+  .menu a {
+    font-size: 1.2rem;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 1.2rem;
+  }
+
+  .corner-gif {
+    bottom: 0.5rem;
+    right: 0.5rem;
+    width: 50px;
   }
 }
 
