@@ -38,7 +38,7 @@
 		}
 
 		// create a map of the key to its index
-		var keyMap = key.split('').map((char, index) => ({ char, index })).sort((a, b) => a.char.localeCompare(b.char));
+		var keyMap = key.toUpperCase().split('').map((char, index) => ({ char, index })).sort((a, b) => a.char.localeCompare(b.char));
 
 		var sortedKey = keyMap.map(item => item.index);
 

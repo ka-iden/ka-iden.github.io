@@ -30,7 +30,7 @@
 		}
 		
 		// Create key map for column ordering
-		var keyMap = key.split('').map((char, index) => ({ char, index })).sort((a, b) => a.char.localeCompare(b.char));
+		var keyMap = key.toUpperCase().split('').map((char, index) => ({ char, index })).sort((a, b) => a.char.localeCompare(b.char));
 		var sortedKeyIndices = keyMap.map(item => item.index);
 		
 		// Calculate lengths of columns (to handle partial columns at the end)
